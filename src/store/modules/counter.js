@@ -1,38 +1,71 @@
-// 액션 타입 정의
-const CHANGE_COLOR = 'counter/CHANGE_COLOR';
-const INCREMENT = 'counter/INCREMENT';
-const DECREMENT = 'counter/DECREMENT';
-
-// **** 액션 생섬함수 정의
-export const changeColor = color => ({ type: CHANGE_COLOR, color });
-export const increment = () => ({ type: INCREMENT });
-export const decrement = () => ({ type: DECREMENT });
-
-// **** 초기상태 정의
+import { createAction, handleActions } from 'redux-actions';
+import { pender } from 'redux-pender';
+import {getSomething} from '../../api/counter';
 const initialState = {
-    color: 'red',
-    number: 0,
-  };
+  something: "",
+  data: {}
+};
 
-  // **** 리듀서 작성
-export default function counter(state = initialState, action) {
-    switch (action.type) {
-      case CHANGE_COLOR:
-        return {
-          ...state,
-          color: action.color,
-        };
-      case INCREMENT:
-        return {
-          ...state,
-          number: state.number + 1,
-        };
-      case DECREMENT:
-        return {
-          ...state,
-          number: state.number - 1,
-        };
-      default:
-        return state;
-    }
+const SET_SOMETHING = 'counter/SET_SOMETHING';
+export const setSomething = createAction(SET_SOMETHING, );
+const setSomethingAction = (state, action) => {
+  console.log('action.payload === param :', action.payload);
+  return {
+    ...state,
+    something: action.payload
   }
+}
+export const setSomethingAsync = (param) => dispatch => {
+  setTimeout(
+    () => {
+      dispatch(setSomething(param))
+    }, 1000
+  )
+}
+
+const AXIOS_TEST = "counter/AXIOS_TEST";
+export const axiosTest = createAction(AXIOS_TEST, getSomething);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+  HANDLE ACTIONS
+*/
+export default handleActions({
+  [SET_SOMETHING]:setSomethingAction,
+  ...pender({
+    type: AXIOS_TEST,
+    onSuccess: (state, action) => {
+      console.log('action :', action);
+      return {
+        ...state,
+        data: action.payload
+      }
+    },
+    onFailure: (state, action) => {
+      console.log('f action :', action);
+      return {
+        ...state,
+        data: {
+          title: 'the error is occured!'
+        }
+      }
+    }
+  })
+}, initialState);

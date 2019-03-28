@@ -1,29 +1,55 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { increment, decrement } from '../../store/modules/counter';
-
+import { setSomethingAsync, axiosTest } from '../../store/modules/counter';
+let i = 1;
 class TestContainer extends Component {
-  handleIncrement = () => {
-    this.props.increment();
-  };
-  handleDecrement = () => {
-    this.props.decrement();
-  };
+  constructor(props) {
+    super(props);
+    this.changeInput = this.changeInput.bind(this);
+    this.prev = this.prev.bind(this);
+    this.next = this.next.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.axiosTest(i);
+  }
+  
+  
+  changeInput(e) {
+    this.props.setSomethingAsync  (e.target.value)
+  }
+
+  prev() {
+    this.props.axiosTest(i--)
+  }
+
+  next() {
+    this.props.axiosTest(i++)
+  }
+
   render() {
-    const { color, number } = this.props;
+    console.log('this.props.pender :', this.props.pender);
+    const { something, data } = this.props;
     return (
-      <div>test</div>
+      <div>
+        <div>{something}</div>
+        <input type="text" onChange={this.changeInput}/>
+
+        <h1>{data&&data.title}</h1>
+        <button onClick={this.prev}>prev</button>
+        <button onClick={this.next}>next</button>
+      </div>
     );
   }
 }
 
-const mapStateToProps = ({ counter }) => ({
-  color: counter.color,
-  number: counter.number,
+const mapStateToProps = ({ counter, pender }) => ({
+  something: counter.something,
+  data: counter.data,
+  pender
 });
 
-// **** 함수가 아닌 객체 설정시 자동 bindActionCreators 됨
-const mapDispatchToProps = { increment, decrement };
+const mapDispatchToProps = { setSomethingAsync, axiosTest };
 
 export default connect(
   mapStateToProps,
