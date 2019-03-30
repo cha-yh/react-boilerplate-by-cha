@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setSomethingAsync, axiosTest } from '../../store/modules/counter';
+import { setSomethingAsync, axiosTest } from 'store/modules/counter';
+import image from 'images/af/abc.PNG';
+
+import TestModule from 'components/TestModule';
+import './test.scss';
 let i = 1;
 class TestContainer extends Component {
   constructor(props) {
@@ -38,6 +42,11 @@ class TestContainer extends Component {
         <h1>{data&&data.title}</h1>
         <button onClick={this.prev}>prev</button>
         <button onClick={this.next}>next</button>
+        <img src={image} alt=""/>
+        <div className="test">
+          <p>test</p>
+        </div>
+        <TestModule/>
       </div>
     );
   }
