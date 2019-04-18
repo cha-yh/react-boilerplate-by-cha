@@ -1,0 +1,96 @@
+@mixin d-flex {
+    // IE
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+@mixin flex($value) {
+    -webkit-flex: $value; /* Safari 6.1+ */ 
+    -ms-flex: $value; /* IE 10 */ 
+    flex: $value;
+}
+@mixin f-row {
+    @include d-flex();
+    flex-direction: row;
+    -ms-flex-direction: row;
+}
+
+@mixin f-row-reverse {
+    @include d-flex();
+    flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+}
+
+@mixin f-col {
+    @include d-flex();
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+@mixin f-col-reverse {
+    @include d-flex();
+    flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+}
+
+@mixin f-wrap {
+    -ms-flex-wrap : wrap;
+    flex-wrap: wrap;
+}
+
+@mixin f-no-wrap {
+    -ms-flex-wrap : nowrap;
+    flex-wrap: nowrap;
+}
+
+@mixin jc-center {
+    justify-content: center;
+    -ms-flex-pack: center;
+}
+
+@mixin jc-start {
+    justify-content: flex-start;
+    -ms-flex-pack: start;
+}
+
+@mixin jc-end {
+    justify-content: flex-end;
+    -ms-flex-pack: end;
+}
+
+@mixin jc-space-a {
+    justify-content: space-around;
+    -ms-flex-pack: justify; //no space-around
+}
+
+@mixin jc-space-b {
+    justify-content: space-between;
+    -ms-flex-pack: justify;
+}
+
+@mixin jc-unset {
+    justify-content: unset;
+    -ms-flex-pack: unset;
+}
+
+@mixin ai-center {
+    align-items: center;
+    -ms-flex-align: center;
+}
+
+@mixin ai-start {
+    align-items: flex-start;
+    -ms-flex-align: start;
+}
+
+@mixin ai-end {
+    align-items: flex-end;
+    -ms-flex-pack: end;
+}
+
+@mixin ai-unset {
+    align-items: unset;
+    -ms-flex-pack: unset;
+}

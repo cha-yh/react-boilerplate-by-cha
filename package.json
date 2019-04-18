@@ -1,5 +1,5 @@
 {
-  "name": "favorite-photo",
+  "name": "cha-boilerplate",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -129,8 +129,8 @@
       "node"
     ],
     "watchPlugins": [
-      "C:\\Users\\cyh01\\OneDrive\\바탕 화면\\MyProjects\\favorite-photo\\node_modules\\jest-watch-typeahead\\filename.js",
-      "C:\\Users\\cyh01\\OneDrive\\바탕 화면\\MyProjects\\favorite-photo\\node_modules\\jest-watch-typeahead\\testname.js"
+      "C:\\Users\\cyh01\\OneDrive\\바탕 화면\\MyProjects\\cha-boilerplate\\node_modules\\jest-watch-typeahead\\filename.js",
+      "C:\\Users\\cyh01\\OneDrive\\바탕 화면\\MyProjects\\cha-boilerplate\\node_modules\\jest-watch-typeahead\\testname.js"
     ]
   },
   "babel": {
