@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, BrowserRouter as Router, Link} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
 // language / hoc
 import { IntlProvider, addLocaleData } from 'react-intl'
@@ -22,9 +22,7 @@ class App extends Component {
         messages={locale[defaultLang==='es'||defaultLang==='en' ? defaultLang:'en']}
       >
         <div className="App">
-          <Router>
-              <Route exact path="/" component = {TestContainer} />
-          </Router>
+          <Route exact path="/" component = {TestContainer} />
         </div>
       </IntlProvider>
     );
