@@ -9,7 +9,7 @@ import pt from 'react-intl/locale-data/pt'
 import * as locale from './locale';
 
 // containers
-import TestContainer from './containers/TestContainer/TestContainer';
+import ExampleContainer from './containers/ExampleContainer/ExampleContainer';
 
 addLocaleData([...en, ...es, ...pt])
 const defaultLang = navigator.language.slice(0,2) || 'en'
@@ -22,7 +22,7 @@ class App extends Component {
         messages={locale[defaultLang==='es'||defaultLang==='en' ? defaultLang:'en']}
       >
         <div className="App">
-          <Route exact path="/" component = {TestContainer} />
+          <Route exact path="/" component = {ExampleContainer} />
         </div>
       </IntlProvider>
     );

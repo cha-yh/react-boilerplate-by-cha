@@ -1,0 +1,46 @@
+.container {
+    @include container;
+    margin-top: 40px;
+    .async_test {
+        >h3 {
+            margin: 0;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        >input {
+            margin-bottom: 20px;
+        }
+        >p {
+
+        }
+    }
+    .dummy_text_loader {
+        >h1 {
+            text-align: center;
+        }
+        .row {
+            @include f-row;
+            @include jc-center;
+            >p {
+                margin: 0 10px;
+            }
+
+            .next-btn {
+                padding: 0 20px;
+                height: 30px;
+                line-height: 30px;
+                background: #0072ce;
+                color: white;
+                border-radius: 5px;
+
+                &:hover {
+                    background: lighten(#0072ce, 10%)
+                }
+            }
+        }
+    }
+
+    .dummy_text_loader.loading {
+        background: gray;
+    }
+}

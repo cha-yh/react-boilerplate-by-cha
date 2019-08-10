@@ -1,0 +1,6 @@
+{
+    "scss.lint.emptyRules": "ignore",
+    "files.associations": {
+        "*.js": "javascriptreact"
+    },
+}
